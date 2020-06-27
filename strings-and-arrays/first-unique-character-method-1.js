@@ -15,7 +15,7 @@ const firstUniqueChar = function(s) {
     // cycle through all individual letters in the string
     const char = s[i];
     // check if the character in question has only 1 instance of occurence
-    if (hashTable[char] == 1) return i;
+    if (hashTable[char] === 1) return i;
   }
 
   // return if there are no non-repeating characters
