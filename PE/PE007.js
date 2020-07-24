@@ -1,28 +1,26 @@
 function sieveEratosthenes(upperlimit) {
   const primeArray = new Array(upperlimit);
-  let multiple = 1;
+  const halfUpperlimit = upperlimit / 2;
 
-  for (let i = 0; i < primeArray.length; i++) {
+  for (let i = 2; i < halfUpperlimit; i++) {
+    let multiple = i;
+    primeArray[multiple] = true;
+    multiple += i;
+
     while (multiple < upperlimit) {
+      multiple += i;
       primeArray[multiple] = false;
-      multiple *= i;
-      console.log(multiple);
+      console.log(`multple: ${multiple}  isPrime?: ${primeArray[multiple]}`);
     }
   }
 
   return primeArray;
 }
-const upperlimit = 200000;
+const upperlimit = 15;
 const primeArray = sieveEratosthenes(upperlimit);
-const index = 10001;
+const index = 6;
 
-// check
-console.log(primeArray[2]);
-console.log(primeArray[14]);
-console.log(primeArray[9]);
-console.log(primeArray[7]);
-
-function prime10001(primeArray) {
+function prime10001(primeArray, index) {
   let counter = 0;
 
   for (let i = 0; i < index && counter < 10002; i++) {
