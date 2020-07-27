@@ -1,25 +1,37 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
 const isPalindrome = function(s) {
-  // remove all whitespace, commas, and colons from string
-  const input = s.replace(/\W/g, '').toLowerCase();
+  let input = '';
 
-  console.log(input);
+  for (let i = 0; i < s.length; i++) {
+    // determine ascii value
+    const charValue = s.charCodeAt(i);
 
-  // identify the right-most character
-  let right = input.length;
+    if (charValue > 64 && charValue < 91) {
+      // character is an uppercase letter
+      input += s[i];
+    } else if (charValue > 96 && charValue < 123) {
+      // character is a lowercase letter
+      input += s[i];
+    } else if (charValue > 47 && charValue < 58) {
+      input += s[i];
+    }
+  }
 
-  for (let left = 0; left < input.length; left++) {
-    if (input[left] !== input[right - 1]) {
-      // input string is not a palindrome
+  let left = 0;
+  // identify right-most character
+  let right = input.length - 1;
+  input = input.toLocaleLowerCase();
+
+  while (left < right) {
+    if (input[left] !== input[right]) {
+      // the number is not a palindrome
       return false;
     }
+
+    // move both counters to the centre of the input
+    left++;
     right--;
   }
-  // the input string is a palindrome
+
+  // the input is a palindrome
   return true;
 };
-
-isPalindrome('A man, a plan, a canal: Panama');
