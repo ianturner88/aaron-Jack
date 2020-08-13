@@ -1,8 +1,6 @@
 {
-    "extends": [
-        "wesbos"
-    ],
-    "rules": {
-        "guard-for-in": "off"
-    }
+  "extends": ["wesbos"],
+  "rules": {
+    "guard-for-in": 0
+  }
 }
