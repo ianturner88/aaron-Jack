@@ -7,6 +7,8 @@
 const isValid = function(s) {
   /* checks if an input has valid parentheses */
 
+  debugger;
+
   if (s.length % 2 === 1) {
     // the string doesn't have a matching number of brackets
     return false;
@@ -23,15 +25,22 @@ const isValid = function(s) {
   for (const character in s) {
     for (let i = 0; i < brackets.length && isMatch === false; i++) {
       // store the bracket's index value in the array
+
+      // test
+      let test0 = s[character];
+
       if (brackets[i] === s[character]) {
         indexValue = i;
         isMatch = true;
+
+        // test
+        test0 = 4;
       }
     }
 
     if (indexValue < 3) {
       // store the number on the stack
-      stack.push(brackets[indexValue]);
+      stack.push(indexValue);
     } else {
       // retrieve the top item from the stack
       topOfStack = stack.pop();
@@ -40,6 +49,9 @@ const isValid = function(s) {
         return false;
       }
     }
+
+    // reset
+    isMatch = false;
   }
 
   if (stack.length > 0) {
@@ -50,4 +62,4 @@ const isValid = function(s) {
   return true;
 };
 
-console.log(isValid('[()]'));
+isValid('[()]');
