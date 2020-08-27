@@ -4,7 +4,7 @@
  * @param {string} s
  * @return {boolean}
  */
-const isValid = function(s) {
+const isValid = function (s) {
   /* checks if an input has valid parentheses */
 
   debugger;
@@ -22,6 +22,7 @@ const isValid = function(s) {
   let isMatch = false;
   let topOfStack;
 
+  // eslint-disable-next-line guard-for-in
   for (const character in s) {
     for (let i = 0; i < brackets.length && isMatch === false; i++) {
       // store the bracket's index value in the array
