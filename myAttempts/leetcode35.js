@@ -13,9 +13,13 @@ const searchInsert = function (nums, target) {
     if (mid === low || mid == high) {
       // the number is at either end
       return mid;
-    } else if (target <= nums[mid]) {
+    }
+    if (target <= nums[mid]) {
       // the number is to the left of middle
       high = mid - 1;
+      if (target > nums[high]) {
+        return mid;
+      }
     } else if (target >= nums[mid]) {
       // the number is to the right of middle
       low = mid + 1;
@@ -25,4 +29,5 @@ const searchInsert = function (nums, target) {
   return mid;
 };
 
-console.log(searchInsert([1, 3, 5, 6], 4));
+console.log(searchInsert([1, 3, 5, 6], 2));
+module.exports = searchInsert;
