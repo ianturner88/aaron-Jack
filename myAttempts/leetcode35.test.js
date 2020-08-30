@@ -15,3 +15,11 @@ test('Input: [1,3,5,6], 7 => Output: 4', () => {
 test('Input: [1,3,5,6], 0 => Output: 0', () => {
   expect(searchInsert([1, 3, 5, 6], 0)).toBe(0);
 });
+
+test('Input: [1], 0 => Output: 0', () => {
+  expect(searchInsert([1], 0)).toBe(0);
+});
+
+test('Input: [1], 2 => Output: 1', () => {
+  expect(searchInsert([1], 2)).toBe(1);
+});

@@ -1,33 +1,41 @@
 const searchInsert = function (nums, target) {
   let low = 0;
-  let mid;
-  let high = nums.length;
+  let middle;
+  let high = nums.length - 1;
+
+  if (nums.length === 1) {
+    if (nums[0] < target) {
+      return 1;
+    }
+    return 0;
+  }
 
   while (low !== high) {
-    mid = Math.floor(high / 2);
+    middle = Math.floor(high / 2);
 
-    if (target === nums[mid]) {
-      // the number is between low and high
-      return mid;
+    if (target <= nums[low]) {
+      // the target is the smallest number
+      return low;
     }
-    if (mid === low || mid == high) {
-      // the number is at either end
-      return mid;
+    if (target >= nums[high]) {
+      // the target is the largest number
+      return high + 1;
     }
-    if (target <= nums[mid]) {
-      // the number is to the left of middle
-      high = mid - 1;
-      if (target > nums[high]) {
-        return mid;
-      }
-    } else if (target >= nums[mid]) {
-      // the number is to the right of middle
-      low = mid + 1;
+    if (target === nums[middle]) {
+      // the target is the middle number
+      return middle;
+    }
+    if (target > nums[middle]) {
+      low = middle + 1;
+    } else if (target < nums[middle]) {
+      high = middle - 1;
     }
   }
 
-  return mid;
+  console.log(middle);
+
+  return middle;
 };
 
-console.log(searchInsert([1, 3, 5, 6], 2));
+searchInsert([1], 0);
 module.exports = searchInsert;
