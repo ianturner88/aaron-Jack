@@ -10,6 +10,18 @@ const searchInsert = function (nums, target) {
     return 0;
   }
 
+  if (nums.length === 2) {
+    if (nums[0] > target || nums[0] === target) {
+      return 0;
+    }
+    if ((nums[0] < target && nums[1] > target) || nums[1] === target) {
+      return 1;
+    }
+    if (nums[1] < target) {
+      return 2;
+    }
+  }
+
   while (low !== high) {
     middle = Math.floor(high / 2);
 
@@ -37,5 +49,5 @@ const searchInsert = function (nums, target) {
   return middle;
 };
 
-searchInsert([1], 0);
+searchInsert([1, 3, 5], 4);
 module.exports = searchInsert;
