@@ -1,10 +1,22 @@
 const rotate = function (matrix) {
   // determine matrix dimensions
   const matrixLength = matrix[0].length;
-  console.log(`Matrix length: ${matrixLength}`);
-
   // the array to manipulate
-  matrixAnswer = matrix;
+  const matrixAnswer = matrix;
+
+  let countTop = 0;
+  let countBottom = matrix.length;
+
+  console.log(`hello${matrixAnswer}`);
+
+  while (countTop != matrix.length / 2) {
+    matrixAnswer[countTop] = matrix[countBottom];
+
+    countTop++;
+    countBottom--;
+  }
+
+  console.log(`hello${matrixAnswer}`);
 };
 
 matrix = [
@@ -15,4 +27,6 @@ matrix = [
   [17, 16, 15, 14, 13],
 ];
 
-rotate(matrix);
+console.log('hello');
+
+// rotate(matrix);
