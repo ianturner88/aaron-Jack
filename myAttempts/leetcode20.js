@@ -28,14 +28,11 @@ const isValid = function (s) {
       // store the bracket's index value in the array
 
       // test
-      let test0 = s[character];
+      const test0 = s[character];
 
       if (brackets[i] === s[character]) {
         indexValue = i;
         isMatch = true;
-
-        // test
-        test0 = 4;
       }
     }
 
